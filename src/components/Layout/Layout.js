@@ -1,18 +1,14 @@
 import React from 'react';
-import { element } from 'prop-types';
-import { Main, ActivePost } from './Layout.styles';
-import { PostsList } from '../index';
+import { Main } from './Layout.styles';
+import { PostsList, ActivePost } from '../index';
 
-function Layout({ activePost }) {
+function Layout() {
   return (
     <Main>
       <PostsList />
-      <ActivePost>{activePost}</ActivePost>
+      <ActivePost />
     </Main>
   );
 }
-Layout.propTypes = {
-  activePost: element.isRequired,
-};
 
 export default Layout;

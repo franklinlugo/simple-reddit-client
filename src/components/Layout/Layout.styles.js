@@ -6,6 +6,3 @@ export const Main = styled.main`
   display: flex;
   flex-direction: row;
 `;
-export const ActivePost = styled.div`
-  flex: 1;
-`;
