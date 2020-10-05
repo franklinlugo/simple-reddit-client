@@ -11,9 +11,9 @@ import {
   DismissContainer,
   DismissButton,
   Comments,
-} from './Post.styles';
+} from './PostItem.styles';
 
-function Post({ data, onDismissPost, onSetActivePost }) {
+function PostItem({ data, onDismissPost, onSetActivePost }) {
   const { author, title, created, preview, comments } = data;
   const imageSrc = preview?.images[0].resolutions[0].url;
 
@@ -45,7 +45,7 @@ function Post({ data, onDismissPost, onSetActivePost }) {
   );
 }
 
-Post.propTypes = {
+PostItem.propTypes = {
   data: shape({
     author: shape({ name: string }),
     title: string,
@@ -57,4 +57,4 @@ Post.propTypes = {
   onSetActivePost: func,
 };
 
-export default Post;
+export default PostItem;

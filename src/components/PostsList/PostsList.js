@@ -3,9 +3,10 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
 import { onFetch, removePostById, setActivePost } from '../../redux/actions';
-import { Post } from '../index';
+import { PostItem } from '../index';
+import { Container } from './PostsList.styles';
 
-function Posts() {
+function PostsList() {
   const dispatch = useDispatch();
   const { posts, loading, error } = useSelector((state) => state);
 
@@ -22,17 +23,19 @@ function Posts() {
   }
 
   return (
-    <AnimatePresence>
-      {posts.map((data) => (
-        <Post
-          key={data.id}
-          onDismissPost={() => handleDismissPost(data.id)}
-          onSetActivePost={() => handleActivePost(data)}
-          data={data}
-        />
-      ))}
-    </AnimatePresence>
+    <Container>
+      <AnimatePresence>
+        {posts.map((data) => (
+          <PostItem
+            key={data.id}
+            onDismissPost={() => handleDismissPost(data.id)}
+            onSetActivePost={() => handleActivePost(data)}
+            data={data}
+          />
+        ))}
+      </AnimatePresence>
+    </Container>
   );
 }
 
-export default Posts;
+export default PostsList;

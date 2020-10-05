@@ -1,14 +1,12 @@
 import React from 'react';
 import { element } from 'prop-types';
-import { Main, PostsContainer, ActivePost } from './Layout.styles';
-import { Posts } from '../index';
+import { Main, ActivePost } from './Layout.styles';
+import { PostsList } from '../index';
 
 function Layout({ activePost }) {
   return (
     <Main>
-      <PostsContainer>
-        <Posts />
-      </PostsContainer>
+      <PostsList />
       <ActivePost>{activePost}</ActivePost>
     </Main>
   );
