@@ -19,3 +19,5 @@ export const onFetch = () => async (dispatch) => {
     dispatch(onFetchError());
   }
 };
+
+export const removePostById = (id) => ({ type: TYPES.REMOVE_POST_BY_ID, payload: id });

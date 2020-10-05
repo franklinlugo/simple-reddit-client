@@ -24,6 +24,13 @@ export function reducer(state = initialState, action) {
         error: true,
       };
     }
+    case TYPES.REMOVE_POST_BY_ID: {
+      const id = action.payload;
+      return {
+        ...state,
+        posts: state.posts.filter((post) => post.id !== id),
+      };
+    }
     default:
       return state;
   }

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { onFetch } from './redux/actions';
+import { onFetch, removePostById } from './redux/actions';
 import { Layout, Post } from './components';
 
 function App() {
@@ -11,9 +11,13 @@ function App() {
     dispatch(onFetch());
   }, [dispatch]);
 
+  function handleDismissPost(id) {
+    dispatch(removePostById(id));
+  }
+
   function Posts() {
     // eslint-disable-next-line react/jsx-props-no-spreading
-    return posts.map(({ id, ...rest }) => <Post key={id} {...rest} />);
+    return posts.map(({ id, ...rest }) => <Post key={id} onDismissPost={() => handleDismissPost(id)} {...rest} />);
   }
   function ActivePost() {
     return 'ActivePost';

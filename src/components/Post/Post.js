@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, number, shape, array, arrayOf, instanceOf } from 'prop-types';
+import { string, number, shape, arrayOf, func } from 'prop-types';
 import {
   Container,
   AutorContainer,
@@ -13,7 +13,7 @@ import {
   Comments,
 } from './Post.styles';
 
-function Post({ id, author, title, created, preview, comments }) {
+function Post({ id, author, title, created, preview, comments, onDismissPost }) {
   const imageSrc = preview?.images[0].resolutions[0].url;
   return (
     <Container>
@@ -26,7 +26,7 @@ function Post({ id, author, title, created, preview, comments }) {
         <Title>{title}</Title>
       </ImageContainer>
       <DismissContainer>
-        <DismissButton>Dismiss Post</DismissButton>
+        <DismissButton onClick={onDismissPost}>Dismiss Post</DismissButton>
         <Comments> {comments.length} Comments</Comments>
       </DismissContainer>
     </Container>
@@ -40,6 +40,7 @@ Post.propTypes = {
   created: number,
   preview: shape({ image: arrayOf(shape({})) }),
   comments: arrayOf(shape({})),
+  onDismissPost: func,
 };
 
 export default Post;
