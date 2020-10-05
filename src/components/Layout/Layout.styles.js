@@ -7,7 +7,7 @@ export const Main = styled.main`
   flex-direction: row;
 `;
 
-export const Posts = styled.div`
+export const PostsContainer = styled.div`
   width: 500px;
   background-color: ${(props) => props.theme.darkgray};
   border-right: 1px solid ${(props) => props.theme.red};

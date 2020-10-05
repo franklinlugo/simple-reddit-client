@@ -13,10 +13,10 @@ import {
   Comments,
 } from './Post.styles';
 
-function Post({ id, author, title, created, preview, comments, onDismissPost }) {
+function Post({ author, title, created, preview, comments, onDismissPost }) {
   const imageSrc = preview?.images[0].resolutions[0].url;
   return (
-    <Container>
+    <Container initial={{ opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: '-100%', opacity: 0 }}>
       <AutorContainer>
         <Author>{author.name}</Author>
         <Created>{new Date(created * 1000).toLocaleString()}</Created>
@@ -34,7 +34,6 @@ function Post({ id, author, title, created, preview, comments, onDismissPost }) 
 }
 
 Post.propTypes = {
-  id: string,
   author: shape({ name: string }),
   title: string,
   created: number,

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-export const Container = styled.article`
+export const Container = styled(motion.div)`
   width: 100%;
   background-color: ${(props) => props.theme.darkgray};
   color: ${(props) => props.theme.white};
