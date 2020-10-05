@@ -21,3 +21,5 @@ export const onFetch = () => async (dispatch) => {
 };
 
 export const removePostById = (id) => ({ type: TYPES.REMOVE_POST_BY_ID, payload: id });
+
+export const setActivePost = (data) => ({ type: TYPES.SET_ACTIVE_POST, payload: data });

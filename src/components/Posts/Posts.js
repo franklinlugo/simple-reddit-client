@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
-import { onFetch, removePostById } from '../../redux/actions';
+import { onFetch, removePostById, setActivePost } from '../../redux/actions';
 import { Post } from '../index';
 
 function Posts() {
@@ -17,10 +17,19 @@ function Posts() {
     dispatch(removePostById(id));
   }
 
+  function handleActivePost(data) {
+    dispatch(setActivePost(data));
+  }
+
   return (
     <AnimatePresence>
-      {posts.map(({ id, ...rest }) => (
-        <Post key={id} onDismissPost={() => handleDismissPost(id)} {...rest} />
+      {posts.map((data) => (
+        <Post
+          key={data.id}
+          onDismissPost={() => handleDismissPost(data.id)}
+          onSetActivePost={() => handleActivePost(data)}
+          data={data}
+        />
       ))}
     </AnimatePresence>
   );

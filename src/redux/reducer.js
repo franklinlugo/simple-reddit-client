@@ -31,6 +31,13 @@ export function reducer(state = initialState, action) {
         posts: state.posts.filter((post) => post.id !== id),
       };
     }
+    case TYPES.SET_ACTIVE_POST: {
+      const data = action.payload;
+      return {
+        ...state,
+        activePost: data,
+      };
+    }
     default:
       return state;
   }
