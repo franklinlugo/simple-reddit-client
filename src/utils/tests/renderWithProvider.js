@@ -3,8 +3,8 @@ import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import store from '../../redux/store';
 
-export function renderWithProvider(ui, { dispatchAction = () => {} } = {}) {
-  dispatchAction(store);
+export function renderWithProvider(ui, { onPrepareStore = () => {} } = {}) {
+  onPrepareStore(store);
 
   // eslint-disable-next-line react/prop-types
   function Wrapper({ children }) {
