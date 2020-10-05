@@ -1,6 +1,6 @@
 ## Simple Reddit Client
 
-[simple reddit client](reddit-client-mocha.vercel.app)
+[simple reddit client](https://reddit-client-mocha.vercel.app)
 
 Reddit client develop using:
 
