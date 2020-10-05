@@ -6,7 +6,6 @@ exports[`ActivePost should render 1`] = `
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  border: 1px solid red;
   position: fixed;
   top: 0;
   width: calc(100% - 500px);

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   flex: 1;
-  border: 1px solid red;
   position: fixed;
   top: 0;
   width: calc(100% - 500px);

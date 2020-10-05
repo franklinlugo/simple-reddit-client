@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
 import { onFetch, removePostById, setActivePost } from '../../redux/actions';
 import { PostItem } from '../index';
-import { Container } from './PostsList.styles';
+import { Container, Loading, Error } from './PostsList.styles';
 
 function PostsList() {
   const dispatch = useDispatch();
@@ -24,16 +24,26 @@ function PostsList() {
 
   return (
     <Container>
-      <AnimatePresence>
-        {posts.map((data) => (
-          <PostItem
-            key={data.id}
-            onDismissPost={() => handleDismissPost(data.id)}
-            onSetActivePost={() => handleActivePost(data)}
-            data={data}
-          />
-        ))}
-      </AnimatePresence>
+      {loading ? (
+        <Loading>...loading</Loading>
+      ) : (
+        <>
+          {error ? (
+            <Error>...Error</Error>
+          ) : (
+            <AnimatePresence>
+              {posts.map((data) => (
+                <PostItem
+                  key={data.id}
+                  onDismissPost={() => handleDismissPost(data.id)}
+                  onSetActivePost={() => handleActivePost(data)}
+                  data={data}
+                />
+              ))}
+            </AnimatePresence>
+          )}
+        </>
+      )}
     </Container>
   );
 }
