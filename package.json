@@ -12,6 +12,7 @@
     "lint": "eslint --ignore-path .gitignore .",
     "lint:css": "stylelint './src/**/*.js'",
     "test": "jest",
+    "testw": "jest --watch",
     "validate": "npm-run-all --parallel check-format lint"
   },
   "repository": {
@@ -36,6 +37,7 @@
     "react-redux": "^7.2.1",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
     "snoowrap": "^1.21.0",
     "styled-components": "^5.2.0"
   },

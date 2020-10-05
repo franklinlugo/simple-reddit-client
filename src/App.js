@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { getTopPost } from './services';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { onFetch } from './redux/actions';
 
 function App() {
-  const [topPosts, setTopPosts] = useState([]);
+  const dispatch = useDispatch();
+  const { posts, loading, error } = useSelector((state) => state);
 
   useEffect(() => {
-    (async () => {
-      setTopPosts(await getTopPost());
-    })();
-  }, []);
+    dispatch(onFetch());
+  }, [dispatch]);
 
   return (
     <div>
       <h1>App</h1>
       <ol>
-        {topPosts.map(({ title }) => (
+        {posts.map(({ title }) => (
           <li>{title}</li>
         ))}
       </ol>
