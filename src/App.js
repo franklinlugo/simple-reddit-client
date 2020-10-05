@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { onFetch } from './redux/actions';
+import { Layout, Post } from './components';
 
 function App() {
   const dispatch = useDispatch();
@@ -10,15 +11,24 @@ function App() {
     dispatch(onFetch());
   }, [dispatch]);
 
-  return (
-    <div>
-      <ol>
-        {posts.map(({ title }) => (
-          <li>{title}</li>
-        ))}
-      </ol>
-    </div>
-  );
+  function Posts() {
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    return posts.map(({ id, ...rest }) => <Post key={id} {...rest} />);
+  }
+  function ActivePost() {
+    return 'ActivePost';
+  }
+
+  // return (
+  //   <div>
+  //     <ol>
+  //       {posts.map(({ title }) => (
+  //         <li>{title}</li>
+  //       ))}
+  //     </ol>
+  //   </div>
+  // );
+  return <Layout posts={<Posts />} activePost={<ActivePost />} />;
 }
 
 export default App;

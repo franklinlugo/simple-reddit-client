@@ -10,6 +10,6 @@ const r = new Snoowrap({
 });
 
 export async function getTopPost() {
-  const topPosts = await r.getTop({ time: 'week', limit: 50 });
+  const topPosts = await r.getTop({ time: 'week', limit: 5 });
   return topPosts;
 }
