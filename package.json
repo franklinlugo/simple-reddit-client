@@ -4,8 +4,8 @@
   "description": "react boilerplate with webpack in order to have a straightforward scaffold to practice",
   "main": "src/entries/index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development",
-    "build": "webpack --config=webpack.config.prod.js",
+    "start": "webpack-dev-server --config=webpack.dev.js",
+    "build": "webpack --config=webpack.prod.js",
     "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|json)\"",
     "format": "npm run prettier -- --write",
     "check-format": "npm run prettier -- --list-different",
@@ -83,6 +83,7 @@
     "stylelint-processor-styled-components": "^1.10.0",
     "webpack": "4.44.2",
     "webpack-cli": "3.3.12",
-    "webpack-dev-server": "3.11.0"
+    "webpack-dev-server": "3.11.0",
+    "webpack-merge": "^5.1.4"
   }
 }
